@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>loginPage</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<style type="text/css">.top { margin-bottom: 10px; }</style>
+		<script src="javascripts/testForLogin.js"></script>
+
+		
+	</head>
+	<body>
+		<script type="text/javascript">	
+			sendVerify();
+			//problem
+
+			/*
+			window.onload = function(){
+			if(verify){
+				alert('go in web');
+				getPersonSetData();
+			}else{
+				alert('go back to login');
+		      	window.location.href = "http://203.204.231.25:3000";
+			}
+		}
+		*/
+		
+		</script>
+
+		<div style="padding-left: 15%">
+			<div style="padding-top:150px ">
+				<h2><span  class="badge col-md-2 offset-md-4 ">LOGIN</span></h2>
+			</div>
+		</div>
+		<div style="padding-left: 8% ">	
+			<div style="padding-top: 30px" class=""></div>
+				<form action="" class="" name="loginForm" onsubmit="return(checkLoginForm())">
+			  		<div class="form-group">
+		    			<input type="text" class="col-lg-3 form-control offset-md-4 bg-light" id="loginUsername" aria-describedby="emailHelp" placeholder="Enter Username">
+		  			</div>
+		  			<div class="form-group">
+		    			<input type="password" class="col-lg-3 form-control offset-md-4 bg-light" id="loginPassword" placeholder="Password">
+		  			</div>
+		  			<button style="margin-top: 2%" type="submit" class="col-lg-3 btn btn-primary offset-md-4" onclick="send_out()">Submit</button>
+				</form>
+				<div style="padding-top: 1%">
+					<a style="padding-left: 44.5%" href="regist.html">Join us</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

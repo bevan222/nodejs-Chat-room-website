@@ -1,0 +1,48 @@
+body{
+	font-size: 62.5%;
+}
+
+.article{
+	padding-left:18%;
+	padding-right:3%;
+}
+
+.pSetContent{
+	margin-top: 2%;
+}
+
+.pSetContentTitle{
+	font-size: 1.2rem;
+}
+
+.pSetContentBody{
+	font-size: 1.5rem;
+}
+
+.vertical-menu {
+  width: 200px;
+  float: left;
+  padding-top: 3%;
+  padding-left:2%; /* Set a width if you like */
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50; /* Add a green color to the "active/current" link */
+  color: white;
+}
+
+.vertical-menu{
+	font-size: 1.5rem;
+}

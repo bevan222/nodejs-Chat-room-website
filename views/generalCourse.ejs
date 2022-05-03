@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>personalPage</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+		<style type="text/css">.top { margin-bottom: 10px; }</style>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		
+		
+		
+	</head>
+	<body>	
+		<h1>Q7</h1>
+		<pre>Library IEEE;
+			USE IEEE.Std_logic_1164.all;
+			
+			entity Q7 is 
+			   port(
+				  input : in std_logic;    
+				  Clk :in std_logic;    
+				  Q :out  std_logic_vector(3 downto 0)    
+			   );
+			end Q7;
+			architecture Behavioral of Q7 is  
+			
+			component DFlipflop
+			 port(
+				  Q : out std_logic;    
+				  Clk :in std_logic;  
+			   sync_reset: in std_logic;  
+				  D :in  std_logic    
+			   );
+			end component;
+			
+			signal QTemp:std_logic_vector(3 downto 0);
+			
+			begin
+			
+			DF:DFlipflop port map(QTemp(0),Clk,'0',input);
+			Q(0) <= Qtemp(0);
+				
+			
+			G1:for i in 1 to 3 generate
+				DF:DFlipflop port map(QTemp(i),Clk,'0',QTemp(i-1));
+				Q(i) <= QTemp(i);
+			end generate G1;
+			
+			end Behavioral; 
+		</pre>
+		<h1>Q8</h1>
+		<pre>
+			Library IEEE;
+USE IEEE.Std_logic_1164.all;
+
+entity Q8 is 
+port(
+serial_in : in std_logic;    
+Clk : in std_logic;  
+load : in std_logic;  
+parallel_in : in std_logic_vector(3 downto 0);
+Q : out std_logic_vector(3 downto 0)
+);
+end Q8;
+architecture Behavioral of Q8 is  
+
+component DFlipflop
+ port(
+      Q : out std_logic;    
+      Clk :in std_logic;  
+   sync_reset: in std_logic;  
+      D :in  std_logic    
+   );
+end component;
+
+signal DTemp:std_logic_vector(3 downto 0);
+signal QTemp:std_logic_vector(3 downto 0);
+
+begin
+
+DTemp(0) <= (serial_in and (not load)) or (load and parallel_in(0));
+DF:DFlipflop port map(QTemp(0),Clk,'0',DTemp(0));
+
+G1:for i in 1 to 3 generate
+	DTemp(i) <= (QTemp(i-1) and (not load)) or (load and parallel_in(i));
+	DF:DFlipflop port map(QTemp(i),Clk,'0',DTemp(i));
+	Q(i) <= QTemp(i);
+end generate G1;
+
+end Behavioral; 
+		</pre>
+		<h1>Q9</h1>
+		<pre>
+			Library IEEE;
+USE IEEE.Std_logic_1164.all;
+
+entity Q9 is 
+port(
+input : in std_logic_vector(3 downto 0);    
+E : in std_logic;  
+output : out std_logic_vector(2 downto 0)
+);
+end Q9;
+
+architecture Behavioral of Q9 is  
+function fn1(
+	F : in std_logic_vector(3 downto 0))
+	return std_logic is
+	variable temp :std_logic;
+begin
+	temp := (F(0) xor F(1)) xor (F(2) xor F(3));
+	return temp;
+end function fn1;
+
+signal temp : std_logic;
+signal result : std_logic;
+
+begin
+
+temp <= fn1(input);
+result <= temp xor E;
+
+output(2) <= result;
+output(1) <= result;
+output(0) <= result;
+	
+
+
+end Behavioral; 
+
+		</pre>
+		<h1>DFlipflop</h1>
+		<pre>
+			Library IEEE;
+USE IEEE.Std_logic_1164.all;
+
+entity DFlipflop is 
+   port(
+      Q : out std_logic;    
+      Clk :in std_logic;  
+   sync_reset: in std_logic;  
+      D :in  std_logic    
+   );
+end DFlipflop;
+architecture Behavioral of DFlipflop is  
+begin  
+ process(Clk)
+ begin 
+    if(rising_edge(Clk)) then
+   if(sync_reset='1') then 
+    Q <= '0';
+   else 
+    Q <= D; 
+   end if;
+    end if;       
+ end process;  
+end Behavioral; 
+		</pre>
+	</body>
+</html>
+
+
+

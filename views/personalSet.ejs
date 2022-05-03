@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>loginPage</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+		<script src="../javascripts/personalSet.js"></script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">	
+			sendVerify();
+			window.onload = function(){
+				document.getElementById('welcome').innerHTML = "welcome " + getCookie('username');
+				console.log(getCookie("username"));
+			}
+			
+			//problem
+
+			/*
+			window.onload = function(){
+			if(verify){
+				alert('go in web');
+				getPersonSetData();
+			}else{
+				alert('go back to login');
+		      	window.location.href = "http://localhost:3000";
+			}
+		}
+		*/
+		
+		</script>
+		
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+		  <div class="container">
+		    <a class="navbar-brand" href="#">
+		          <img src="http://placehold.it/150x50?text=Logo" alt="">
+		        </a>
+		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+		          <span class="navbar-toggler-icon"></span>
+		        </button>
+		    <div class="collapse navbar-collapse" id="navbarResponsive">
+		      <ul class="navbar-nav ml-auto">
+		        <li class="nav-item active">
+		          <a onclick="window.location.href='http://203.204.231.25:3000/users' "class="nav-link" href="#">Home
+		                <span class="sr-only">(current)</span>
+		              </a>
+		        </li>    
+		        <li id="welcome" style="padding-left: 10%" class="navbar-text">
+    				welcome&nbsp;
+  				</li>
+  				<li style="padding-left: 20%"class="nav-item">
+		          <a onclick="logout()" class="nav-link" href="#">logout</a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+
+		<div class="vertical-menu" style="margin: 2%">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+			<a href="#">Link 4</a>
+		</div>
+		<div class="vertical-menu" style="float:right ; margin-right: 6%;margin-top: 2%">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+			<a href="#">Link 4</a>
+		</div>
+		<div class="article" style="padding-left: 20%;padding-right: 25%">
+			
+			<div class="border border-primary" style="padding: 3%; margin-top: 5%">
+				<img class="pSetContent" style="width:20%" src="/img/doggy1.jpg">
+				<a style="padding-left:40%;padding-right:21.5% ; font-size: 2.0rem ">資工二</a>
+				
+					<button>
+		  				<a><img src="/img/pencil.jpg" width="20"></a>
+		  			</button>
+	  			
+			</div>
+
+			<div class="pSetContent border border-primary" style="padding: 3%; margin-top: 5%">
+				<i class="pSetContentTitle">Userdata</i>
+				<button style="margin-left: 84%" onclick="changeText('userContent')">
+	  				<a><img src="/img/pencil.jpg" width="20"></a>
+	  			</button>
+				<div class="border border-light pSetCol">
+					<a id="userContent" class="pSetContentBody">Userdata-content<br><br><br><br><br></a>
+				</div>
+			</div>
+			<div class="pSetContent border border-primary" style="padding: 3%; margin-top: 5%">
+				<i class="pSetContentTitle">interest in</i>
+				<button onclick="changeText('interesting')" style="margin-left: 83.7%">
+	  				<a><img src="/img/pencil.jpg" width="20"></a>
+	  			</button>
+				<div class="border border-light pSetCol">
+					<a id="interesting" class="pSetContentBody">intersting-content<br><br><br><br><br></a>
+				</div>
+			</div>
+			<div class="pSetContent border border-primary" style="padding: 3%; margin-top: 5%">
+				<i class="pSetContentTitle">search for</i>
+				<button onclick="changeText('searchFor')" style="margin-left: 83.6%">
+	  				<a><img src="/img/pencil.jpg" width="20"></a>
+	  			</button>
+				<div class="border border-light pSetCol">
+					<a id="searchFor" class="pSetContentBody">search for-content<br><br><br><br><br></a>
+				</div>
+			</div>
+		</div>
+
+
+		
+		
+		
+	</body>
+</html>
