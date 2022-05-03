@@ -1,4 +1,4 @@
  #to start Chat System
 
-npm install
-npm start app.js
+1. npm install
+2. npm start app.js
